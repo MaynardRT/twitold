@@ -41,13 +41,13 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // System theme change listener
-  window
-    .matchMedia("(prefers-color-scheme: dark)")
-    .addEventListener("change", (e) => {
-      if (!localStorage.getItem("theme")) {
-        setTheme(e.matches ? "dark" : "light");
-      }
-    });
+  // window
+  //   .matchMedia("(prefers-color-scheme: dark)")
+  //   .addEventListener("change", (e) => {
+  //     if (!localStorage.getItem("theme")) {
+  //       setTheme(e.matches ? "dark" : "light");
+  //     }
+  //   });
 
   // Initialize and set up event listener
   initTheme();
