@@ -3,6 +3,9 @@ This is an old style twitter like post character limitation.
 
 ## ✅ Features
 - Twitter copy of old style character limitation of post.
+- Toggle button for light and dark mode.
+- Modal for the post message.
+- Blurring effect when the post is clicked.
 
 ## </> Authors
 - [@MaynardRT](https://github.com/MaynardRT) - Developer
