@@ -1,61 +1,55 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Create theme toggle button
-  const themeToggle = document.querySelector("button");
-  themeToggle.className = "theme-toggle";
-  themeToggle.textContent = "🌙 Dark Mode";
-  document.body.appendChild(themeToggle);
-
-  // Check for saved theme preference or system preference
-  function initializeTheme() {
-    const savedTheme = localStorage.getItem("theme");
-    const systemPrefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-
-    if (savedTheme === "dark" || (!savedTheme && systemPrefersDark)) {
-      document.documentElement.setAttribute("data-theme", "dark");
-      themeToggle.textContent = "☀️ Light Mode";
-    }
+  // Create or select theme toggle button more reliably
+  let themeToggle = document.querySelector(".theme-toggle");
+  if (!themeToggle) {
+    themeToggle = document.createElement("button");
+    themeToggle.className = "theme-toggle";
+    document.body.prepend(themeToggle); // Add at start of body
   }
 
-  // Toggle theme function
-  function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute("data-theme");
-    if (currentTheme === "dark") {
+  // Theme management functions
+  function setTheme(theme) {
+    if (theme === "dark") {
+      document.documentElement.setAttribute("data-theme", "dark");
+      themeToggle.textContent = "☀️ Light Mode";
+    } else {
       document.documentElement.removeAttribute("data-theme");
       themeToggle.textContent = "🌙 Dark Mode";
-      localStorage.setItem("theme", "light");
-    } else {
-      document.documentElement.setAttribute("data-theme", "dark");
-      themeToggle.textContent = "☀️ Light Mode";
-      localStorage.setItem("theme", "dark");
     }
+    localStorage.setItem("theme", theme);
   }
 
-  // Initialize theme on load
-  initializeTheme();
+  function getSystemPreference() {
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  }
 
-  // Add click event to toggle button
-  themeToggle.addEventListener("click", toggleTheme);
+  // Initialize theme
+  function initTheme() {
+    const savedTheme = localStorage.getItem("theme");
+    const systemTheme = getSystemPreference();
+    const initialTheme = savedTheme || systemTheme;
+    setTheme(initialTheme);
+  }
 
-  // Watch for system theme changes
+  // Toggle between themes
+  function handleThemeToggle() {
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
+    setTheme(newTheme);
+  }
+
+  // System theme change listener
   window
     .matchMedia("(prefers-color-scheme: dark)")
     .addEventListener("change", (e) => {
       if (!localStorage.getItem("theme")) {
-        // Only change if no user preference is set
-        if (e.matches) {
-          document.documentElement.setAttribute("data-theme", "dark");
-          themeToggle.textContent = "☀️ Light Mode";
-        } else {
-          document.documentElement.removeAttribute("data-theme");
-          themeToggle.textContent = "🌙 Dark Mode";
-        }
+        setTheme(e.matches ? "dark" : "light");
       }
     });
-});
 
-console.log("Initial theme check:", {
-  savedTheme: localStorage.getItem("theme"),
-  systemPrefersDark: window.matchMedia("(prefers-color-scheme: dark)").matches,
+  // Initialize and set up event listener
+  initTheme();
+  themeToggle.addEventListener("click", handleThemeToggle);
 });
