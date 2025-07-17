@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Create theme toggle button
-  const themeToggle = document.createElement("button");
+  const themeToggle = document.querySelector("button");
   themeToggle.className = "theme-toggle";
   themeToggle.textContent = "🌙 Dark Mode";
   document.body.appendChild(themeToggle);
