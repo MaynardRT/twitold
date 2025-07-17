@@ -54,3 +54,8 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 });
+
+console.log("Initial theme check:", {
+  savedTheme: localStorage.getItem("theme"),
+  systemPrefersDark: window.matchMedia("(prefers-color-scheme: dark)").matches,
+});
