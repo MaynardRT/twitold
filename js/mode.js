@@ -4,12 +4,12 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".theme-toggle") || createThemeButton();
 
   // Set initial theme
-  const currentTheme =
-    localStorage.getItem("theme") ||
-    (window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light");
-  setTheme(currentTheme);
+  // const currentTheme =
+  //   localStorage.getItem("theme") ||
+  //   (window.matchMedia("(prefers-color-scheme: dark)").matches
+  //     ? "dark"
+  //     : "light");
+  // setTheme(currentTheme);
 
   // Toggle theme on button click
   themeToggle.addEventListener("click", () => {
@@ -28,11 +28,11 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("theme", theme);
   }
 
-  function createThemeButton() {
-    const button = document.createElement("button");
-    button.className = "theme-toggle";
-    button.textContent = "🌙 Dark Mode";
-    document.body.prepend(button);
-    return button;
-  }
+  // function createThemeButton() {
+  //   const button = document.createElement("button");
+  //   button.className = "theme-toggle";
+  //   button.textContent = "🌙 Dark Mode";
+  //   document.body.prepend(button);
+  //   return button;
+  // }
 });
