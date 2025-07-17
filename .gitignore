@@ -1,0 +1,44 @@
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# IDE and editor files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Dependency directories
+node_modules/
+bower_components/
+
+# Logs and temporary files
+*.log
+*.tmp
+npm-debug.log*
+
+# Build and generated files
+/dist/
+/build/
+*.min.js
+*.min.css
+*.map
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.production
+
+# macOS system files
+._*
+
+# Windows system files
+ehthumbs.db
+Desktop.ini
+
+# Local development overrides
+*.local.*

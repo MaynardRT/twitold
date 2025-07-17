@@ -1,0 +1,230 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  /* Light theme colors */
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --container-bg: #ffffff;
+  --header-color: #1da1f2;
+  --border-color: #e1e8ed;
+  --footer-border: #e1e8ed;
+  --footer-text: #536471;
+  --link-color: #1da1f2;
+  --input-border: aqua;
+  --input-focus: #1da1f2;
+  --placeholder-color: #657786;
+  --button-bg: #1da1f2;
+  --button-hover: #1991db;
+  --button-disabled: #9ac9f3;
+  --char-count: #657786;
+  --char-count-warning: #e0245e;
+  --body-bg: aqua;
+  --modal-blur: 0px; /* Default no blur */
+}
+
+[data-theme="dark"] {
+  /* Dark theme colors */
+  --bg-color: #15202b;
+  --text-color: #ffffff;
+  --container-bg: #192734;
+  --header-color: #1da1f2;
+  --border-color: #38444d;
+  --footer-border: #38444d;
+  --footer-text: #8899a6;
+  --link-color: #1da1f2;
+  --input-border: #1da1f2;
+  --input-focus: #1da1f2;
+  --placeholder-color: #8899a6;
+  --button-bg: #1da1f2;
+  --button-hover: #1991db;
+  --button-disabled: #124d7a;
+  --char-count: #8899a6;
+  --char-count-warning: #e0245e;
+  --body-bg: #0d1b26;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--body-bg);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, filter 0.3s ease;
+  position: relative;
+}
+
+/* Blur effect for background only */
+body.modal-active::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  z-index: 999; /* Behind modal but above other content */
+  display: none;
+}
+
+/* Show blur when modal is active */
+body.modal-active::before {
+  display: block;
+}
+
+/* Modal Background */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: var(--modal-blur);
+}
+
+/* When modal is active */
+.modal-active {
+  --modal-blur: 5px;
+}
+
+/* Rest of your existing CSS remains the same */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 8px 16px;
+  background-color: var(--button-bg);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  z-index: 1001;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.container {
+  background-color: var(--container-bg);
+  color: var(--text-color);
+  border-radius: 16px;
+  box-shadow: 0 10px 10px rgba(1, 1, 1, 0.3);
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  box-sizing: border-box;
+  margin: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header h1 {
+  color: var(--header-color);
+  margin: 0 0 20px 0;
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+.main-content {
+  width: 100%;
+  min-height: 150px;
+  border: 2px solid var(--input-border);
+  background-color: var(--container-bg);
+  color: var(--text-color);
+  border-radius: 8px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 16px;
+  resize: vertical;
+  outline: none;
+  margin-bottom: 20px;
+  position: relative;
+  transition: border-color 0.3s ease;
+}
+
+.main-content:focus {
+  border-color: var(--input-focus);
+}
+
+.main-content[contenteditable="true"]:empty::before {
+  content: attr(placeholder);
+  color: var(--placeholder-color);
+  pointer-events: none;
+  display: block;
+}
+
+.footer {
+  border-top: 1px solid var(--footer-border);
+  padding-top: 15px;
+  color: var(--footer-text);
+  font-size: 12px;
+  text-align: center;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.footer a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.char-count {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--char-count);
+  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+.char-count-label {
+  font-weight: bold;
+  padding: 2px;
+}
+
+.char-count-value.warning {
+  color: var(--char-count-warning);
+}
+
+.submit-btn {
+  background-color: var(--button-bg);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s;
+  margin-bottom: 15px;
+}
+
+.submit-btn:hover {
+  background-color: var(--button-hover);
+}
+
+.submit-btn:disabled {
+  background-color: var(--button-disabled);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.action-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
