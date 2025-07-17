@@ -1,37 +1,73 @@
 <!DOCTYPE html>
 
 <html lang="en-US">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Twitter || X.com</title>
-        <meta name="description" content="Character limit like twitter before.">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="./style.css">
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
-    </head>
-    <body>
-        
-        <div class="container">
-            <div class="header">
-                <h1>Twitter | X.com</h1>
-            </div>
-            <div class="main-content" id="editableContent" contenteditable="true" placeholder="What's happening?"></div>
-            <div class="action-area">
-                <div class="char-count" id="charCount">
-                    <span class="char-count-label">Character Count:</span>
-                    <span class="char-count-value" id="countValue">0/280</span>
-                </div>
-            </div>
-            <button class="submit-btn" id="submitBtn" disabled>Post</button>
-            <div class="footer">
-                <p>Copyright © 2025 by <a href="https://mrtwebsite-cc4d9.web.app/">MaynardRT</a></p>
-            </div>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Twitter | X.com</title>
+    <meta name="description" content="Character limit like twitter before." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/modal.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./images/ico/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/ico/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./images/ico/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./site.webmanifest" />
+  </head>
+  <body>
+    <button class="theme-toggle">🌙 Dark Mode</button>
+    <div class="container">
+      <div class="header">
+        <h1>Twitter | X.com</h1>
+      </div>
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>Post</h2>
+            <span class="close">&times;</span>
+          </div>
+          <div class="modal-body">
+            <p id="post-display"></p>
+          </div>
         </div>
-        
-        <script src="./script.js" async defer></script>
-    </body>
+      </div>
+      <div
+        class="main-content"
+        id="editableContent"
+        contenteditable="true"
+        placeholder="What's happening?"
+      ></div>
+      <div class="action-area">
+        <div class="char-count" id="charCount">
+          <span class="char-count-label">Character Count:</span>
+          <span class="char-count-value" id="countValue">0/280</span>
+        </div>
+      </div>
+      <button class="submit-btn" id="submitBtn" disabled>Post</button>
+      <div class="footer">
+        <p>
+          Copyright © 2025 by
+          <a href="https://mrtwebsite-cc4d9.web.app/">MaynardRT</a>
+        </p>
+      </div>
+    </div>
+
+    <script src="./js/mode.js" async defer></script>
+    <script src="./js/main.js" async defer></script>
+  </body>
 </html>
