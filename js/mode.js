@@ -1,15 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Get or create the theme toggle button
   const themeToggle =
-    document.querySelector(".theme-toggle") || createThemeButton();
+    document.querySelector(".theme-toggle");
 
-  // Set initial theme
-  const currentTheme =
-    localStorage.getItem("theme") ||
-    (window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light");
-  setTheme(currentTheme);
+  // Set initial theme // || createThemeButton()
+  // const currentTheme =
+  //   localStorage.getItem("theme") ||
+  //   (window.matchMedia("(prefers-color-scheme: dark)").matches
+  //     ? "dark"
+  //     : "light");
+  // setTheme(currentTheme);
 
   // Toggle theme on button click
   themeToggle.addEventListener("click", () => {
@@ -28,11 +28,11 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("theme", theme);
   }
 
-  function createThemeButton() {
-    const button = document.createElement("button");
-    button.className = "theme-toggle";
-    button.textContent = "🌙";
-    document.body.prepend(button);
-    return button;
-  }
+  // function createThemeButton() {
+  //   const button = document.createElement("button");
+  //   button.className = "theme-toggle";
+  //   button.textContent = "🌙";
+  //   document.body.prepend(button);
+  //   return button;
+  // }
 });
