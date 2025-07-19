@@ -24,14 +24,14 @@ document.addEventListener("DOMContentLoaded", function () {
   function setTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
     themeToggle.textContent =
-      theme === "dark" ? "☀️ Light Mode" : "🌙 Dark Mode";
+      theme === "dark" ? "☀️" : "🌙";
     localStorage.setItem("theme", theme);
   }
 
   function createThemeButton() {
     const button = document.createElement("button");
     button.className = "theme-toggle";
-    button.textContent = "🌙 Dark Mode";
+    button.textContent = "🌙";
     document.body.prepend(button);
     return button;
   }
