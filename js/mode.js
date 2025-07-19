@@ -1,38 +1,33 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // Get or create the theme toggle button
-  const themeToggle =
-    document.querySelector(".theme-toggle");
+document.addEventListener("DOMContentLoaded", () => {
+  // Create or select the theme toggle button
+  let themeToggle = document.querySelector(".theme-toggle");
+  if (!themeToggle) themeToggle = createThemeButton();
 
-  // Set initial theme // || createThemeButton()
-  // const currentTheme =
-  //   localStorage.getItem("theme") ||
-  //   (window.matchMedia("(prefers-color-scheme: dark)").matches
-  //     ? "dark"
-  //     : "light");
-  // setTheme(currentTheme);
+  // Set initial theme based on local storage or system preference
+  const savedTheme = localStorage.getItem("theme");
+  const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const currentTheme = savedTheme || (systemPrefersDark ? "dark" : "light");
+  setTheme(currentTheme);
 
   // Toggle theme on button click
   themeToggle.addEventListener("click", () => {
-    const newTheme =
-      document.documentElement.getAttribute("data-theme") === "dark"
-        ? "light"
-        : "dark";
+    const newTheme = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
     setTheme(newTheme);
   });
 
-  // Helper functions
+  // Apply the theme and update button icon
   function setTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
-    themeToggle.innerHTML =
-      theme === "dark" ? "☀️" : "🌙";
+    themeToggle.innerHTML = theme === "dark" ? "☀️" : "🌙";
     localStorage.setItem("theme", theme);
   }
 
-  // function createThemeButton() {
-  //   const button = document.createElement("button");
-  //   button.className = "theme-toggle";
-  //   button.textContent = "🌙";
-  //   document.body.prepend(button);
-  //   return button;
-  // }
+  // Create the theme toggle button dynamically if not present
+  function createThemeButton() {
+    const button = document.createElement("button");
+    button.className = "theme-toggle";
+    button.innerHTML = "🌙"; // Default icon for light mode
+    document.body.prepend(button);
+    return button;
+  }
 });
