@@ -23,8 +23,8 @@ npm-debug.log*
 # Build and generated files
 /dist/
 /build/
-*.min.js
-*.min.css
+# *.min.js
+# *.min.css
 *.map
 
 # Environment files

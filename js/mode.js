@@ -5,13 +5,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Set initial theme based on local storage or system preference
   const savedTheme = localStorage.getItem("theme");
-  const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const systemPrefersDark = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
   const currentTheme = savedTheme || (systemPrefersDark ? "dark" : "light");
   setTheme(currentTheme);
 
   // Toggle theme on button click
   themeToggle.addEventListener("click", () => {
-    const newTheme = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    const newTheme =
+      document.documentElement.getAttribute("data-theme") === "dark"
+        ? "light"
+        : "dark";
     setTheme(newTheme);
   });
 

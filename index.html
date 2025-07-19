@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/modal.css" />
-    <script src="./js/mode.js" async defer></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <link
       rel="apple-touch-icon"
@@ -31,45 +31,54 @@
     <link rel="manifest" href="./site.webmanifest" />
   </head>
   <body>
-    <button class="theme-toggle" type="button">🌙 </button>
-    <div class="container">
-      <div class="header">
-        <h1>Twitter | X.com</h1>
-      </div>
-      <div id="myModal" class="modal">
-        <!-- Modal content -->
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2>Post</h2>
-            <span class="close">&times;</span>
-          </div>
-          <div class="modal-body">
-            <p id="post-display"></p>
-          </div>
-        </div>
-      </div>
-      <div
-        class="main-content"
-        id="editableContent"
-        contenteditable="true"
-        placeholder="What's happening?"
-      ></div>
-      <div class="action-area">
-        <div class="char-count" id="charCount">
-          <span class="char-count-label">Character Count:</span>
-          <span class="char-count-value" id="countValue">0/280</span>
-        </div>
-      </div>
-      <button class="submit-btn" id="submitBtn" disabled>Post</button>
-      <div class="footer">
-        <p>
-          Copyright © 2025 by
-          <a href="https://mrtwebsite-cc4d9.web.app/">MaynardRT</a>
-        </p>
-      </div>
-    </div>
-
-    <script src="./js/main.js" async defer></script>
     
+      <button class="theme-toggle" type="button">🌙</button>
+
+      <div class="container">
+        <div class="header">
+          <h1>Twitter | X.com</h1>
+        </div>
+        <div id="myModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2>Post</h2>
+              <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+              <p id="post-display"></p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="main-content"
+          id="editableContent"
+          contenteditable="true"
+          data-placeholder="What's happening?"
+        ></div>
+        <div class="action-area">
+          <div class="char-count" id="charCount">
+            <span class="char-count-label">Character Count:</span>
+            <span class="char-count-value" id="countValue">0/280</span>
+          </div>
+        </div>
+        <button class="submit-btn" id="submitBtn" disabled>Post</button>
+        <div class="footer">
+          <p>
+            Copyright © 2025 by
+            <a href="https://mrtwebsite-cc4d9.web.app/">MaynardRT</a>
+          </p>
+        </div>
+      </div>
+      <div id="particles-js"></div>
+      </div>
+
+    <script src="./js/main.js" defer></script>
+    <script src="./js/mode.js" defer></script>
+
+    <!-- Import Particles.js and app.js files -->
+
+    <script src="./js/app.js"></script>
+    <script src="./js/particles.js"></script>
   </body>
 </html>
