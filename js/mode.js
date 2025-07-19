@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Helper functions
   function setTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
-    themeToggle.textContent =
+    themeToggle.innerHTML =
       theme === "dark" ? "☀️" : "🌙";
     localStorage.setItem("theme", theme);
   }
