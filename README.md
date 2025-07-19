@@ -6,6 +6,7 @@ This is an old style twitter like post character limitation.
 - Toggle button for light and dark mode.
 - Modal for the post message.
 - Blurring effect when the post is clicked.
+- Added a particle.js background.
 
 ## </> Authors
 - [@MaynardRT](https://github.com/MaynardRT) - Developer
